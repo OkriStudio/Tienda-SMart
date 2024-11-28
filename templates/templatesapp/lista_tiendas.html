@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Tiendas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos-listado.css' %}">
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">Tienda Smart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'listado_tiendas' %}">Tiendas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'listado_productos' %}">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'listado_proveedores' %}">Proveedores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container mt-5 pt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-info text-center fs-1 fw-bold">
+                    Listado de Tiendas
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de Tiendas -->
+        {% if tiendas %}
+        <div class="row mb-4">
+            <div class="col-12">
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Proveedor</th>
+                            <th>Nombre Distribuidora</th>
+                            <th>Descuento</th>
+                            <th>Productos</th>
+                            <th>Actualizar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tienda in tiendas %}
+                        <tr>
+                            <td>{{ tienda.proveedor }}</td>
+                            <td>{{ tienda.nombre_distribuidora }}</td>
+                            <td>{{ tienda.descuento }}%</td>
+                            <td>
+                                {% for producto in tienda.productos.all %}
+                                    {{ producto.nombre }}{% if not forloop.last %}, {% endif %}
+                                {% empty %}
+                                    Ningún producto asociado
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <a href="{% url 'actualizar_tienda' tienda.id %}" class="btn btn-success btn-sm">
+                                    <i class="bi bi-pencil"></i> Actualizar
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'eliminar_tienda' tienda.id %}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar esta tienda?');">
+                                    <i class="bi bi-trash"></i> Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning" role="alert">
+            <strong>No se han encontrado tiendas.</strong>
+        </div>
+        {% endif %}
+
+        <!-- Botones -->
+        <div class="row">
+            <div class="col-6">
+                <a href="../" class="btn btn-danger w-100">Volver</a>
+            </div>
+            <div class="col-6">
+                <a href="{% url 'agregar_tienda' %}" class="btn btn-info w-100">Agregar Tienda</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3 mt-5">
+        <p class="mb-0">Gracias por usar nuestros servicios c:</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

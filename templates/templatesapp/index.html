@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Smart</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tienda Smart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'listado_productos' %}">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'agregar_producto' %}">Agregar Producto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'listado_tiendas' %}">Tiendas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'agregar_tienda' %}">Agregar Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'listado_proveedores' %}">Proveedores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'agregar_proveedor' %}">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="container mt-5 pt-5">
+        <div class="text-center">
+            <h1 class="display-4 text-success">Bienvenido a Tienda Smart</h1>
+            <p class="lead">¡Ofrecemos los mejores productos frescos para ti y tu familia!</p>
+        </div>
+
+        <!-- ¿Qué ofrecemos? -->
+        <section class="my-5">
+            <h2 class="text-center text-primary">¿Qué ofrecemos?</h2>
+            <p class="text-center">En Tienda Smart, podrás encontrar una gran variedad de productos frescos, desde frutas y verduras hasta carnes, lácteos y productos gourmet. Nuestra plataforma te ofrece una forma fácil y segura de comprar lo que necesitas para tu hogar. Además, los proveedores pueden registrarse para ofrecer sus productos a nuevos clientes. ¡No pierdas la oportunidad de ser parte de nuestra comunidad!</p>
+        </section>
+
+        <!-- Productos Destacadas -->
+        <section class="my-5">
+            <h2 class="text-center text-primary">Productos Destacados</h2>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{% static 'C:\Users\MrFranSG\Desktop\Inge3\prueba3\static\imagenes\tipos-de-frutas-1.jpg' %}" class="card-img-top" alt="Frutas frescas">
+                        <div class="card-body">
+                            <h5 class="card-title">Frutas Frescas</h5>
+                            <p class="card-text">Disfruta de las mejores frutas del mercado, siempre frescas y de alta calidad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{% static 'C:\Users\MrFranSG\Desktop\Inge3\prueba3\static\imagenes\verduras-y-hortalizas.jpg' %}" class="card-img-top" alt="Verduras frescas">
+                        <div class="card-body">
+                            <h5 class="card-title">Verduras Frescas</h5>
+                            <p class="card-text">Desde lechugas hasta zanahorias, las verduras más frescas y nutritivas están aquí.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{% static 'C:\Users\MrFranSG\Desktop\Inge3\prueba3\static\imagenes\carnes-derivados-cecinas.jpg' %}" class="card-img-top" alt="Carnes">
+                        <div class="card-body">
+                            <h5 class="card-title">Carnes</h5>
+                            <p class="card-text">Ofrecemos las mejores y mas baratas carnes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soporte y Contacto -->
+        <section class="my-5 bg-light py-4 rounded">
+            <h2 class="text-center text-primary">Soporte y Contacto</h2>
+            <p class="text-center">Si tienes alguna pregunta o necesitas asistencia, no dudes en contactarnos. Nuestro equipo está disponible para ayudarte en cualquier momento.</p>
+            <div class="text-center">
+                <p>También puedes llamarnos al <strong>123-456-7890</strong> o escribirnos a <strong>TiendaSmart@gmail.com</strong></p>
+                <a href="mailto:contacto@mitienda.com" class="btn btn-success">Enviar Correo</a>
+            </div>
+        </section>
+
+        <!-- Registrarse como proveedor -->
+        <section class="my-5">
+            <h2 class="text-center text-primary">¿Eres proveedor?</h2>
+            <p class="text-center">Si eres proveedor de productos frescos, puedes unirte a nuestra plataforma para expandir tu negocio. ¡Registrarte es fácil y rápido! Solo tienes que hacer clic en el siguiente botón para comenzar.</p>
+            <div class="text-center">
+                <a href="{% url 'agregar_proveedor' %}" class="btn btn-info btn-lg">Regístrate como Proveedor</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-success text-white text-center py-3">
+        <p>&copy; 2024 Tienda Smart | Todos los derechos reservados</p>
+        <p>Gracias por confiar en nosotros. ¡Esperamos verte pronto!</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Fondo claro y limpio */
+    color: #212529; /* Texto oscuro y legible */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.alert {
+    background-color: #d4edda; /* Fondo verde claro para alertas */
+    color: #155724; /* Texto verde oscuro */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+    font-weight: bold;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #28a745; /* Verde fresco */
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    background-color: #ffffff; /* Fondo blanco para contraste */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="submit"] {
+    background-color: #28a745; /* Botón verde */
+    color: #fff; /* Texto blanco */
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #218838; /* Más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    color: #fff;
+}
+
+.btn-info {
+    background-color: #17a2b8; /* Azul claro */
+}
+
+.btn-info:hover {
+    background-color: #117a8b;
+    transform: translateY(-2px);
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #6c757d; /* Texto gris oscuro */
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    background-color: #ffffff;
+    color: #212529;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    border-color: #28a745;
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
